@@ -1,0 +1,52 @@
+@import 'mixins';
+@import '../imports';
+
+/* general */
+
+html,
+body {
+    height: 100%;
+    /* IMPORTANT!!! stretches viewport to 100% */
+    background-color: #F8F9F9!important;
+}
+* {
+    font-family: 'Lato' !important;
+}
+.canvas {
+    width: 100%;
+    height: 100%;
+    background-color: #edecec !important;
+}
+.fullHeight {
+    height: 100%;
+    overflow:visible!important;
+}
+::-webkit-input-placeholder {
+    color: #d0d2d3;
+}
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: #d0d2d3;
+}
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #d0d2d3;
+}
+:-ms-input-placeholder {
+    color: #d0d2d3;
+}
+.block {
+    display: inline-block !important;
+}
+.left {
+    float: left !important;
+}
+.right {
+    float: right !important;
+}
+.pointer {
+    cursor: pointer !important;
+}
+.clearBoth{
+    clear: both;
+}

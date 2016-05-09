@@ -1,0 +1,50 @@
+<div ng-controller="mainController" id="main" class="fullHeight" layout="row">
+    <div class="sideBar fullHeight" show-gt-sm>
+        <div class="infoContainer">
+            <div class="cover"></div>
+            <img src="img/logo.png" / class="logo">
+            <img src="img/building.png" / class="building">
+            <!-- <div class="name">PARTNER &nbsp&nbsp&nbsp&nbsp | &nbsp&nbsp&nbsp&nbsp CLARO <i class="ion-arrow-down-b"></i> -->
+            <div class="name"><span ng-show="$root.user.partner == $root.user.id">PARTNER</span> <span ng-show="$root.user.partner != $root.user.id">AGENTE</span> &nbsp&nbsp&nbsp&nbsp | &nbsp&nbsp&nbsp&nbsp {{$root.partnerName}}</i>
+            </div>
+        </div>
+        <div class="menuContainer">
+            <div md-button class="item" ng-repeat="item in menuItems" ng-click="goView(item)" ng-class="{ selected : $state.current.name == item.view }" ng-hide="(!$root.profile.customers.module && item.view == 'main.customers') || (!$root.profile.agents.module && item.view == 'main.agents') || (!$root.profile.partners.module && item.view == 'main.partners') || (!$root.profile.profiles.module && item.view == 'main.profiles')">
+                <i class="{{item.icon}}"></i>
+                <span style="margin-left:10px;">{{item.title}}</span>
+            </div>
+            <div md-button class="item" ng-click="logout()">
+                <i class="ion-power"></i>
+                <span style="margin-left:10px;">Cerrar sesión</span>
+            </div>
+<!--
+            <div md-button class="item" ng-click="logout()" style="text-align:center;">
+                <i class="ion-power"></i>
+            </div>
+-->
+        </div>
+        <div class="footer">
+            <p>
+                <a href="http://pentcloud.com" target="_blank">Términos</a> &
+                <a href="http://pentcloud.com" target="_blank"><span>Condiciones</a> |
+                <span>Pentcloud LLC. @ 2015</span>
+            </p>
+        </div>
+    </div>
+    <div id="mainContainer" flex="85" class="fullHeight" offset-gt-lg="15" offset-lg="15" offset-md="15" offset-sm="0" layout="column">
+        <div class="navBar">
+            <i class="{{$root.view.icon}}"></i> <span style="margin-left:24px;" render="$root.view.title"></span>
+            <!-- <div class="create" md-button ng-click="newProfile.form.create('customers')" ng-controller="profilesController" ng-show="$root.profilesEntity == 3"><i class="ion-plus"></i></div> -->
+        </div>
+        <!--
+        <div class="mobileToolbar" layout="row" hide-md hide-lg hide-gt-lg>
+            <span class="mobTitle">{{$root.location}}</span>
+            <div class="mobToggle" ng-click="$event.stopPropagation(); $root.menu.isExpanded = !$root.menu.isExpanded;">
+                <i class="ion-navicon"></i>
+            </div>
+        </div>
+        -->
+
+        <div id="window" ui-view name="window"></div>
+    </div>
+</div>

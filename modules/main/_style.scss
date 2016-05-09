@@ -1,0 +1,140 @@
+//@import 'css/mixins.scss';
+ #main {
+    .sideBar {
+        width: 15%;
+        background: #f8f9f9;
+        position: fixed;
+        border-right: 1px solid #f1f1f2;
+        .infoContainer {
+            @include fullBackgroundCoverCenter ('../img/bg_mini.jpg');
+            padding: 30px 20px;
+            height: auto;
+            position: relative;
+            .cover {
+                @include fullCover (255, 255, 255, .7);
+            }
+            .logo {
+                width: 100%;
+                position: relative;
+                z-index: 9;
+            }
+            .building {
+                width: 35%;
+                position: relative;
+                left: 32.5%;
+                z-index: 9;
+                margin-top: 60px;
+            }
+            .name {
+                margin-top: 30px;
+                width: 100%;
+                text-align: center;
+                position: relative;
+                z-index: 9;
+                font-size: 12px;
+                font-weight: 700;
+                color: #231f20;
+                i {
+                    color: #5bc4c3;
+                    float: right;
+                    text-align: right;
+                    font-size: 20px;
+                    margin-top: -4px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .menuContainer {
+            height: auto;
+            border-top: 1px solid #f1f1f2;
+            .item {
+                @include transition(all, 0.2s, $bezier);
+                @include borderRadius(0px);
+                line-height: normal;
+                min-height: inherit;
+                text-align: left;
+                width: 100%;
+                text-transform: capitalize;
+                color: #213b4a;
+                font-size: 12px;
+                padding: 25px;
+                font-weight: 700;
+                cursor: pointer;
+                margin: 0;
+                &.selected {
+                    background: #213b4a;
+                    color: white;
+                }
+                &:hover {
+                    background: #213b4a;
+                    color: white;
+                }
+            }
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #213b4a;
+            font-size: 8px;
+            font-weight: 900;
+            a {
+                color: #213b4a;
+                text-decoration: none;
+            }
+        }
+    }
+    #mainContainer {
+        background: #edecec;
+        .navBar {
+            background: white;
+            height: 72px;
+            color: #213b4a;
+            font-size: 18px;
+            padding: 24px;
+            border-bottom: 1px solid #e8e9e9;
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            width: 85%;
+            z-index: 8;
+            i {
+                color: #bbbdc0;
+            }
+            .create {
+                position: absolute;
+                right: 0px;
+                top: 4px;
+                min-width: 48px!important;
+                width: 48px!important;
+                height: 48px;
+                @include borderRadius(0px!important);
+                background: red;
+                i {
+                    font-size: 24px;
+                    color: #fff;
+                }
+            }
+        }
+        #window {
+            margin-top: 72px;
+        }
+    }
+}
+.mainCreate {
+    position: fixed!important;
+    right: 12px!important;
+    top: 6px!important;
+    min-width: 42px!important;
+    width: 42px!important;
+    height: 42px!important;
+    @include borderRadius(0px!important);
+    background: #5BC4C3 !important;
+    z-index: 101!important;
+    i {
+        font-size: 20px!important;
+        color: #fff!important;
+    }
+}
